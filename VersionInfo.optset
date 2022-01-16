@@ -1,0 +1,25 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<VerInfo_Locale>1043</VerInfo_Locale>
+			<VerInfo_Keys>CompanyName=X²Software;FileDescription=Minecraft Open to Internet;FileVersion=0.1.0.0;InternalName=MinecraftO2I;LegalCopyright=2012 X²Sofware;LegalTrademarks=;OriginalFilename=MinecraftO2I.exe;ProductName=Minecraft Open to Internet;ProductVersion=0.1;Comments=</VerInfo_Keys>
+			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<DCC_UNIT_PLATFORM>false</DCC_UNIT_PLATFORM>
+			<DCC_SYMBOL_PLATFORM>false</DCC_SYMBOL_PLATFORM>
+			<VerInfo_MinorVer>1</VerInfo_MinorVer>
+			<VerInfo_MajorVer>0</VerInfo_MajorVer>
+			<DCC_UsePackage>fmx;IndySystem;DBXInterBaseDriver;DataSnapClient;DataSnapCommon;DataSnapServer;DataSnapProviderClient;DbxCommonDriver;dbxcds;DBXOracleDriver;dsnap;IndyCore;fmxase;inetdbxpress;IPIndyImpl;bindcompfmx;rtl;dbrtl;DbxClientDriver;bindcomp;inetdb;xmlrtl;IndyProtocols;DBXMySQLDriver;bindengine;soaprtl;DBXInformixDriver;DBXFirebirdDriver;inet;fmxobj;DBXSybaseASADriver;fmxdae;dbexpress;DataSnapIndy10ServerTransport;$(DCC_UsePackage)</DCC_UsePackage>
+			<Icon_MainIcon>resources\MinecraftO2I.ico</Icon_MainIcon>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+			<DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+		</PropertyGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>OptionSet</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality/>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

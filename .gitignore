@@ -1,0 +1,9 @@
+bin/
+bin64/
+lib/
+lib64/
+
+__history
+
+*.local
+*.identcache

@@ -1,0 +1,134 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{4555A47C-6172-435F-B999-499E06D2B040}</ProjectGuid>
+			<ProjectVersion>13.4</ProjectVersion>
+			<FrameworkType>VCL</FrameworkType>
+			<MainSource>MinecraftO2I.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Release</Config>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>3</TargetedPlatforms>
+			<AppType>Application</AppType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+			<Base_Win64>true</Base_Win64>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Release>2</VerInfo_Release>
+			<VerInfo_MinorVer>5</VerInfo_MinorVer>
+			<VerInfo_Keys>CompanyName=X²Software;FileDescription=Minecraft Open to Internet;FileVersion=0.5.2.0;InternalName=MinecraftO2I;LegalCopyright=2012-2014 X²Sofware;LegalTrademarks=;OriginalFilename=MinecraftO2I.exe;ProductName=Minecraft Open to Internet;ProductVersion=0.5;Comments=</VerInfo_Keys>
+			<Manifest_File>F:\Components\source\X2Utils\Manifest\VistaManAsInvoker.manifest</Manifest_File>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<DCC_UNIT_PLATFORM>false</DCC_UNIT_PLATFORM>
+			<DCC_SYMBOL_PLATFORM>false</DCC_SYMBOL_PLATFORM>
+			<VerInfo_MajorVer>0</VerInfo_MajorVer>
+			<DCC_UsePackage>fmx;IndySystem;DBXInterBaseDriver;DataSnapClient;DataSnapCommon;DataSnapServer;DataSnapProviderClient;DbxCommonDriver;dbxcds;DBXOracleDriver;dsnap;IndyCore;fmxase;inetdbxpress;IPIndyImpl;bindcompfmx;rtl;dbrtl;DbxClientDriver;bindcomp;inetdb;xmlrtl;IndyProtocols;DBXMySQLDriver;bindengine;soaprtl;DBXInformixDriver;DBXFirebirdDriver;inet;fmxobj;DBXSybaseASADriver;fmxdae;dbexpress;DataSnapIndy10ServerTransport;$(DCC_UsePackage)</DCC_UsePackage>
+			<Icon_MainIcon>resources\MinecraftO2I.ico</Icon_MainIcon>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_DcuOutput>.\lib</DCC_DcuOutput>
+			<DCC_ExeOutput>.\bin</DCC_ExeOutput>
+			<DCC_E>false</DCC_E>
+			<DCC_N>false</DCC_N>
+			<DCC_S>false</DCC_S>
+			<DCC_F>false</DCC_F>
+			<DCC_K>false</DCC_K>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win64)'!=''">
+			<DCC_DcuOutput>.\lib64</DCC_DcuOutput>
+			<DCC_ExeOutput>.\bin64</DCC_ExeOutput>
+			<DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_UsePackage>cxPageControldxBarPopupMenuD16;dxSkinOffice2007SilverD16;cxPageControlD16;dxPSdxFCLnkD16;dxComnD16;cxBarEditItemD16;dxNavBarD16;dxSkinSpringTimeD16;dxPSCoreD16;dcldxSkinsCoreD16;dxSkinOffice2007BlueD16;dxSkinsdxNavBarPainterD16;cxSpreadSheetD16;DBXSybaseASEDriver;dxBarDBNavD16;dxSkinGlassOceansD16;vclimg;dxSkinHighContrastD16;dxSkinLiquidSkyD16;dxSkinSilverD16;dxSkinOffice2010SilverD16;dxSkinStardustD16;dxSkinOffice2010BlackD16;dxdbtrD16;dxCoreD16;vcldb;dxorgcD16;vcldsnap;dxSkinDarkSideD16;dxSkinscxPCPainterD16;dxRibbonD16;dxPScxExtCommonD16;cxVerticalGridD16;DBXDb2Driver;dxSkinLilianD16;dxThemeD16;dxSkinBlueD16;dxdborD16;cxTreeListdxBarPopupMenuD16;vcl;dxSkinOffice2010BlueD16;dxGDIPlusD16;DBXMSSQLDriver;dxSkinCoffeeD16;dxSkinscxSchedulerPainterD16;dxPScxSSLnkD16;dxPSdxDBTVLnkD16;dxSkinTheAsphaltWorldD16;dxPSdxOCLnkD16;dxSkinSevenD16;cxTreeListD16;dxSkinDarkRoomD16;cxLibraryD16;dxPScxPivotGridLnkD16;dxPScxVGridLnkD16;webdsnap;dxBarD16;dxSkinDevExpressStyleD16;dxPScxPCProdD16;dxSkiniMaginaryD16;dxPScxSchedulerLnkD16;dxPSdxDBOCLnkD16;dxSkinOffice2007BlackD16;dxSkinPumpkinD16;dxPScxGridLnkD16;dxBarExtItemsD16;dxLayoutControlD16;dxSkinLondonLiquidSkyD16;dxDockingD16;dxSkinXmas2008BlueD16;dxSkinMcSkinD16;cxPivotGridD16;cxEditorsD16;dxSkinOffice2007GreenD16;dxPScxCommonD16;dxSkinSharpD16;dxPsPrVwAdvD16;DBXOdbcDriver;dxPSLnksD16;dxBarExtDBItemsD16;dxmdsD16;dxSkinsCoreD16;dxSkinSevenClassicD16;dxSkinBlueprintD16;dxSkinsdxDLPainterD16;dxPSPrVwRibbonD16;vclactnband;dxSkinMoneyTwinsD16;bindcompvcl;dxSkinSummer2008D16;dxTabbedMDID16;vclie;dxSkinDevExpressDarkStyleD16;dxSkinCaramelD16;vcltouch;websnap;dxPSdxLCLnkD16;dxSkinFoggyD16;dxFlowChartD16;dxSkinsdxRibbonPainterD16;dxSkinSharpPlusD16;dxSkinBlackD16;dsnapcon;dxSkinVS2010D16;cxGridD16;dxSkinOffice2007PinkD16;vclx;dxSkinsdxBarPainterD16;dxPScxTLLnkD16;cxSchedulerD16;dxSkinValentineD16;dxSkinWhiteprintD16;$(DCC_UsePackage)</DCC_UsePackage>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<DCC_UNIT_PLATFORM>false</DCC_UNIT_PLATFORM>
+			<DCC_SYMBOL_PLATFORM>false</DCC_SYMBOL_PLATFORM>
+			<DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_E>false</DCC_E>
+			<DCC_N>false</DCC_N>
+			<DCC_S>false</DCC_S>
+			<DCC_F>false</DCC_F>
+			<DCC_K>false</DCC_K>
+		</PropertyGroup>
+		<Import Condition="'$(Cfg_2)'!='' And Exists('Default.optset')" Project="Default.optset"/>
+		<ItemGroup>
+			<DelphiCompile Include="$(MainSource)">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="source\MainFrm.pas">
+				<Form>MainForm</Form>
+			</DCCReference>
+			<DCCReference Include="source\UPnPWorker.pas"/>
+			<DCCReference Include="source\MinecraftServers.pas"/>
+			<DCCReference Include="source\UPNPLib_TLB.pas"/>
+			<DCCReference Include="source\EnumInterface.pas"/>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">MinecraftO2I.dpr</Source>
+					</Source>
+					<Excluded_Packages/>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1043</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win64">True</Platform>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+	</Project>

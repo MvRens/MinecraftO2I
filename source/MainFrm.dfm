@@ -1,0 +1,631 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Minecraft Open to Internet'
+  ClientHeight = 665
+  ClientWidth = 548
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ghSettings: TJvGroupHeader
+    AlignWithMargins = True
+    Left = 8
+    Top = 8
+    Width = 532
+    Height = 17
+    Margins.Left = 8
+    Margins.Top = 8
+    Margins.Right = 8
+    Margins.Bottom = 4
+    Align = alTop
+    Caption = 'Settings'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ExplicitLeft = -5
+    ExplicitTop = -12
+    ExplicitWidth = 548
+  end
+  object ghMinecraft: TJvGroupHeader
+    AlignWithMargins = True
+    Left = 8
+    Top = 281
+    Width = 532
+    Height = 17
+    Margins.Left = 8
+    Margins.Top = 8
+    Margins.Right = 8
+    Margins.Bottom = 4
+    Align = alTop
+    Caption = 'Minecraft LAN worlds'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ExplicitLeft = 5
+    ExplicitTop = 220
+    ExplicitWidth = 548
+  end
+  object pnlSettings: TPanel
+    AlignWithMargins = True
+    Left = 8
+    Top = 29
+    Width = 532
+    Height = 132
+    Margins.Left = 8
+    Margins.Top = 0
+    Margins.Right = 8
+    Margins.Bottom = 0
+    Align = alTop
+    BevelOuter = bvNone
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    DesignSize = (
+      532
+      132)
+    object lblExternalPort: TLabel
+      Left = 0
+      Top = 59
+      Width = 67
+      Height = 13
+      Caption = 'External port:'
+    end
+    object lblExternalAddress: TLabel
+      Left = 0
+      Top = 86
+      Width = 77
+      Height = 13
+      Caption = 'Server address:'
+    end
+    object imgArrow: TImage
+      Left = 156
+      Top = 110
+      Width = 16
+      Height = 16
+      AutoSize = True
+      Picture.Data = {
+        055449636F6E0000010001001010020001000100B00000001600000028000000
+        1000000020000000010001000000000040000000000000000000000000000000
+        0000000000000000FFFFFF000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000FFFF0000FFFF0000FFFF0000FFFF0000FE0F0000
+        FDFF0000FDFF0000FDFF0000FDFF0000F07F0000F8FF0000FDFF0000FFFF0000
+        FFFF0000FFFF0000FFFF0000}
+    end
+    object lblConnect: TLabel
+      Left = 178
+      Top = 112
+      Width = 270
+      Height = 13
+      Caption = 'this is the server address your friends should connect to'
+    end
+    object lblMethod: TLabel
+      Left = 0
+      Top = 0
+      Width = 97
+      Height = 13
+      Caption = 'Forwarding method:'
+    end
+    object seExternalPort: TJvSpinEdit
+      Left = 156
+      Top = 56
+      Width = 85
+      Height = 21
+      ButtonKind = bkStandard
+      MaxValue = 65535.000000000000000000
+      MinValue = 1.000000000000000000
+      Value = 25564.000000000000000000
+      TabOrder = 2
+      OnChange = seExternalPortChange
+    end
+    object edtExternalAddress: TEdit
+      Left = 156
+      Top = 83
+      Width = 376
+      Height = 21
+      Alignment = taCenter
+      Anchors = [akLeft, akTop, akRight]
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGrayText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 4
+      Text = 'hold on, determining your external IP address...'
+    end
+    object btnApplyPort: TButton
+      Left = 247
+      Top = 56
+      Width = 66
+      Height = 21
+      Caption = 'Apply'
+      Enabled = False
+      TabOrder = 3
+      OnClick = btnApplyPortClick
+    end
+    object rbUPnP: TRadioButton
+      Left = 156
+      Top = -1
+      Width = 325
+      Height = 17
+      Caption = ' Automatically open the port in a UPnP compatible router'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+      OnClick = rbForwardMethodClick
+    end
+    object rbProxy: TRadioButton
+      Left = 156
+      Top = 22
+      Width = 325
+      Height = 17
+      Caption = ' Act as a proxy (manual port forwarding required)'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = rbForwardMethodClick
+    end
+  end
+  object tbMinecraft: TToolBar
+    AlignWithMargins = True
+    Left = 8
+    Top = 302
+    Width = 532
+    Height = 24
+    Margins.Left = 8
+    Margins.Top = 0
+    Margins.Right = 8
+    Margins.Bottom = 0
+    AutoSize = True
+    ButtonWidth = 136
+    EdgeBorders = [ebBottom]
+    Images = ilsToolbar
+    List = True
+    ShowCaptions = True
+    TabOrder = 1
+    ExplicitTop = 305
+    object tbOpen: TToolButton
+      Left = 0
+      Top = 0
+      AutoSize = True
+      Caption = 'Open world to internet'
+      Enabled = False
+      ImageIndex = 0
+      OnClick = tbOpenClick
+    end
+  end
+  object vstMinecraft: TVirtualStringTree
+    AlignWithMargins = True
+    Left = 8
+    Top = 326
+    Width = 532
+    Height = 80
+    Margins.Left = 8
+    Margins.Top = 0
+    Margins.Right = 8
+    Margins.Bottom = 8
+    Align = alTop
+    Header.AutoSizeIndex = 0
+    Header.Font.Charset = DEFAULT_CHARSET
+    Header.Font.Color = clWindowText
+    Header.Font.Height = -11
+    Header.Font.Name = 'Tahoma'
+    Header.Font.Style = []
+    Header.Options = [hoAutoResize, hoColumnResize, hoDrag, hoShowSortGlyphs, hoVisible]
+    TabOrder = 2
+    TreeOptions.PaintOptions = [toShowButtons, toShowDropmark, toThemeAware, toUseBlendedImages]
+    TreeOptions.SelectionOptions = [toFullRowSelect]
+    OnFocusChanged = vstMinecraftFocusChanged
+    OnGetText = vstMinecraftGetText
+    ExplicitTop = 329
+    Columns = <
+      item
+        Position = 0
+        Width = 253
+        WideText = 'Description'
+      end
+      item
+        Position = 1
+        Width = 150
+        WideText = 'Address'
+      end
+      item
+        Position = 2
+        Width = 125
+        WideText = 'Status'
+      end>
+    WideDefaultText = ''
+  end
+  object pnlButtons: TPanel
+    AlignWithMargins = True
+    Left = 8
+    Top = 632
+    Width = 532
+    Height = 25
+    Margins.Left = 8
+    Margins.Top = 0
+    Margins.Right = 8
+    Margins.Bottom = 8
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 3
+    object btnClose: TButton
+      Left = 457
+      Top = 0
+      Width = 75
+      Height = 25
+      Align = alRight
+      Caption = 'Close'
+      TabOrder = 1
+      OnClick = btnCloseClick
+    end
+    object btnAbout: TButton
+      Left = 102
+      Top = 0
+      Width = 75
+      Height = 25
+      Align = alLeft
+      Caption = 'About...'
+      TabOrder = 0
+      Visible = False
+    end
+    object btnLog: TButton
+      AlignWithMargins = True
+      Left = 0
+      Top = 0
+      Width = 94
+      Height = 25
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 8
+      Margins.Bottom = 0
+      Align = alLeft
+      Caption = '<runtime>'
+      TabOrder = 2
+      OnClick = btnLogClick
+    end
+  end
+  object cbAutoOpen: TCheckBox
+    AlignWithMargins = True
+    Left = 8
+    Top = 414
+    Width = 532
+    Height = 17
+    Margins.Left = 8
+    Margins.Top = 0
+    Margins.Right = 8
+    Margins.Bottom = 8
+    Align = alTop
+    Caption = ' Automatically open the first LAN world to the internet'
+    TabOrder = 4
+    OnClick = cbAutoOpenClick
+    ExplicitTop = 417
+  end
+  object pnlDevices: TPanel
+    AlignWithMargins = True
+    Left = 8
+    Top = 161
+    Width = 532
+    Height = 112
+    Margins.Left = 8
+    Margins.Top = 0
+    Margins.Right = 8
+    Margins.Bottom = 0
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 5
+    object ghPortForwarding: TJvGroupHeader
+      AlignWithMargins = True
+      Left = 0
+      Top = 0
+      Width = 532
+      Height = 17
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 4
+      Align = alTop
+      Caption = 'UPnP devices'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ExplicitLeft = -5
+      ExplicitTop = 97
+      ExplicitWidth = 548
+    end
+    object vstDevices: TVirtualStringTree
+      AlignWithMargins = True
+      Left = 0
+      Top = 21
+      Width = 532
+      Height = 83
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 8
+      Align = alClient
+      Header.AutoSizeIndex = 0
+      Header.Font.Charset = DEFAULT_CHARSET
+      Header.Font.Color = clWindowText
+      Header.Font.Height = -11
+      Header.Font.Name = 'Tahoma'
+      Header.Font.Style = []
+      Header.Options = [hoAutoResize, hoColumnResize, hoDrag, hoShowSortGlyphs, hoVisible]
+      TabOrder = 0
+      TreeOptions.AutoOptions = [toAutoDropExpand, toAutoScrollOnExpand, toAutoSort, toAutoTristateTracking, toAutoDeleteMovedNodes]
+      TreeOptions.PaintOptions = [toShowButtons, toShowDropmark, toThemeAware, toUseBlendedImages]
+      TreeOptions.SelectionOptions = [toFullRowSelect]
+      OnCompareNodes = vstDevicesCompareNodes
+      OnGetText = vstDevicesGetText
+      ExplicitLeft = 9
+      ExplicitWidth = 514
+      ExplicitHeight = 78
+      Columns = <
+        item
+          Position = 0
+          Width = 328
+          WideText = 'Device'
+        end
+        item
+          Position = 1
+          Width = 200
+          WideText = 'Status'
+        end>
+      WideDefaultText = ''
+    end
+  end
+  object pnlLog: TPanel
+    AlignWithMargins = True
+    Left = 8
+    Top = 439
+    Width = 532
+    Height = 193
+    Margins.Left = 8
+    Margins.Top = 0
+    Margins.Right = 8
+    Margins.Bottom = 0
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 6
+    ExplicitLeft = 184
+    ExplicitTop = 328
+    ExplicitWidth = 185
+    ExplicitHeight = 190
+    object ghLog: TJvGroupHeader
+      AlignWithMargins = True
+      Left = 0
+      Top = 0
+      Width = 532
+      Height = 17
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 4
+      Align = alTop
+      Caption = 'Log'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ExplicitLeft = 3
+      ExplicitTop = 473
+    end
+    object mmoLog: TMemo
+      AlignWithMargins = True
+      Left = 0
+      Top = 21
+      Width = 532
+      Height = 164
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 8
+      Align = alClient
+      ReadOnly = True
+      ScrollBars = ssVertical
+      TabOrder = 0
+      WantReturns = False
+      ExplicitLeft = 8
+      ExplicitTop = 434
+      ExplicitHeight = 190
+    end
+  end
+  object multiCastClient: TIdIPMCastClient
+    Bindings = <>
+    DefaultPort = 4445
+    MulticastGroup = '224.0.2.60'
+    Left = 40
+    Top = 344
+  end
+  object ilsToolbar: TImageList
+    ColorDepth = cd32Bit
+    Left = 376
+    Top = 344
+    Bitmap = {
+      494C0101020005001C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000001000000001002000000000000010
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000100001628150A804E442ACD88583AF1855334F15F361BCC250D017F0100
+      0015000000000000000000000000000000000000000000000000000000000000
+      000000000000040100254D2400A8B85E11F2C56612FA703303C71E0C006B0000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000170B
+      05534A6A22EF009E27FFB66614FFB36413FFAB6620FFA1703BFF967754FF864C
+      28EF130500520000000000000000000000000000000000000000000000000000
+      00000D060042BD6919F3FFAE4EFFFFAD47FFFFA73CFFFF9729FFEA7E18FE3C19
+      0090000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000180D07544D7C
+      0CFC5C7D00FF3A8600FFD36600FFC46700FFC16200FFBE5B00FFB65B05FFAB68
+      36FF7B6839FC130500520000000000000000000000008C4C0DCE6D3C09B20502
+      0029BD691AF5FFB762FFFFB258FFCB701CF83819008B130700532A11007C973E
+      00E81609005A0000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000001000017776F1AF0977B
+      00FFEA6F00FFE27400FFD37700FFCC7600FFC97000FFC46A00FFC46100FF8665
+      00FF009930FF545A24EF010000160000000000000000C57C31F6FDC285FFA95C
+      02EEFFC98EFFFFBE73FFCD7721F80B05003B0000000000000000000000000200
+      001C2B11007A0000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000391F14836D8A00FFA88A
+      07FF669F1DFFB19112FFE38503FFD78301FFD47E00FFCD7700FFD06D00FFC862
+      00FF247D03FF039741FF2A0E028200000000000000008F561AD5FFE0BDFFFFCF
+      9EFFFFCC96FFECA65FFF26120070000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000005D5F28D100B124FF1ABC
+      44FF1AC95CFF1CCC61FFE29424FFE1901CFFDA8A0FFFD78200FFE17400FF0097
+      00FF7A6D00FF567D29FF473C17CF0000000000000000613705B3FFE9D1FFFFD2
+      A4FFFFCF9FFFCD8129FD28130075010000120000000000000000000000000000
+      0000000000010000000700000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000069943DF513BC3FFF2FCA
+      61FF38D46EFF32D66CFFCDAE4FFFEAA03CFFE19626FFDC8B12FFE17E00FF00A1
+      03FF2C8400FF916E15FF964F27F300000000000000003E200091FFF3E5FFFFE2
+      C5FFFFDCB7FFFFD4A1FFFFC37DFF40210091070200314C23029E7B3E11C7A05B
+      25E0BB7C40F8B96F37F711060052000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000006D9B4AF516C653FF2BD8
+      71FF3CE57DFF3CE078FFF3C383FFF0B76EFFE9AA51FFE19423FFE78607FFB280
+      00FF009000FF4A7E10FF60602CF30000000000000000150B0055D49641F8D599
+      49F9B87727E38E5312CA663702B0070400313D1C0094FFD9A0FFFFE5BCFFFFE4
+      C0FFFFE2BCFFFFE4BAFF3010008F000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000005C7540CF43BF4FFFE7A8
+      49FFB3D284FFFFCEA2FFFBD1A3FFF5CB96FFEEBA71FFE69F3AFFEB890EFF9189
+      01FF009100FF009515FF544120CD000000000000000000000000000000090000
+      00020000000000000000000000000000000001000014260F007ACB7D38FEFFD3
+      A0FFFFD1A2FFFFE0B1FF502102B1000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000382D218014CE5EFFD0B0
+      52FF4CD673FFFBCFA4FFF8D3A8FFFBD2A7FFF3C386FFEDA344FFA0981CFF4D94
+      08FFBF7000FF109326FF2C14097E000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000025100072F8B775FFFFCC
+      94FFFFCF98FFFFDFB0FF7D3F12D3000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000101011479B167ED10D4
+      66FFB8CA7CFFFFCB9DFFDDD7A3FF68D57DFFF8B975FFEB9E39FF949817FF888A
+      05FF328700FF995E2CEC01000013000000000000000000000000000000004121
+      0090020100190000000000000000000000000B05003BD17D29F6FFBE74FFFFCA
+      88FF974300EFFECC9BFFB46528F3000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000001717124E5ECA
+      6EFB17D367FFC5C377FF43DD83FF41D173FFF3A74DFFE1931FFFE08601FFE076
+      00FF857514FA130A054C00000000000000000000000000000000000000001C0F
+      005EB16501E72F1A0077140B004F3C1F0089D47D21F6FFB056FFFFC178FFBA67
+      1CF3040100296B340AB77C3A0CC5000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000001515
+      124B62B86BEFAAA83EFF4BBE50FF6EB343FFE99018FFDB8802FFD47D00FFAC66
+      22EA130B064A0000000000000000000000000000000000000000000000000000
+      00004D2A0095F68E1AFEFC9529FFFFA139FFFFA742FFFFBF74FFC16A1AF41B0C
+      0062000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000001010011362A21788F6339C4C4823FE9B77B37E97C5227C42C1D13770000
+      0011000000000000000000000000000000000000000000000000000000000000
+      0000000000002513006F89500CCBD27C1FFDC37320F7633202B90F07004B0000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000100000000100010000000000800000000000000000000000
+      000000000000000000000000FFFFFF0000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000}
+  end
+  object tmrWorldCleanup: TTimer
+    Enabled = False
+    Interval = 5000
+    OnTimer = tmrWorldCleanupTimer
+    Left = 472
+    Top = 344
+  end
+  object ilsDevices: TImageList
+    Left = 312
+    Top = 344
+  end
+  object mappedPort: TIdMappedPortTCP
+    Bindings = <>
+    DefaultPort = 0
+    MappedPort = 0
+    Left = 120
+    Top = 344
+  end
+end
